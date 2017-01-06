@@ -1,0 +1,5 @@
+---
+title: "xxx"
+author: "xxx"
+date: '`r format(Sys.Date(), "%m-%d-%Y")`'
+---
