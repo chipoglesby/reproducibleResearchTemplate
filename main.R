@@ -1,18 +1,21 @@
 # Load most commonly used libraries
 
-library(dplyr)
+list.of.packages <- c("bigrquery", "tidyverse", "plotly")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+library(tidyverse)
 library(bigrquery)
-library(ggplot2)
 
 # ---- begin ----
-# Step One: Load Data from Google Big Query:
+# Step One: Load Data:
 source("code/load.R")
 
 # ---- analysis ----
 # Step Two: Analyzing data for report:
-source("code/functions.R")
+source("code/analysis.R")
 
-# ---- knit ----
+# ---- render ----
 # Step Three: Knitting Report
-knitr::knit("README.Rmd", "README.md")
-knitr::knit("README.Rmd", "analysis.pdf")
+rmarkdown::render("rmd/README.Rmd","github_document", "../README.md")
+rmarkdown::render("rmd/README.Rmd","pdf_document", "../analysis.pdf")
