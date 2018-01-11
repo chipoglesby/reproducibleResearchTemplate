@@ -1,4 +1,4 @@
-# Repoducible Research Template
+# Reproducible Research Template
 
 Lately I've been working on adopting a better workflow for how I produce
 research for work purposes. With all of the push around reproducible
